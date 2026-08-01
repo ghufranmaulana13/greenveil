@@ -1,0 +1,19 @@
+{
+  "name": "greenveil-web-world",
+  "version": "1.0.0",
+  "description": "GreenVeil - A gamified Robinhood Chain token and NFT world.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 3001 -c-1",
+    "start": "npx -y http-server -p 3001 -c-1"
+  },
+  "keywords": [
+    "greenveil",
+    "robinhood-chain",
+    "game",
+    "nft",
+    "tokens"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

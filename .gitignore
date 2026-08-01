@@ -1,0 +1,6 @@
+node_modules
+*.log
+html_assets.txt
+make_*.js
+check_assets.js
+enhance_app.js
