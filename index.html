@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-x-login-preview-boot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -12,229 +12,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-
-    <style>
-      /* Fine-tuned styles matching exact screenshot 1:1 */
-      .x-login-preview {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #17241c;
-        overflow: hidden;
-      }
-
-      .x-login-static-background {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% 30%, rgba(45, 94, 58, 0.4) 0%, rgba(10, 20, 12, 0.85) 100%),
-                    url('ui/goblin-siege/goblins_sitting.webp') center/cover no-repeat;
-        filter: brightness(0.85) contract(1.1);
-      }
-
-      /* Fox & Squirrel visuals */
-      .character-stage {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: 2;
-      }
-
-      .fox-character {
-        position: absolute;
-        bottom: 12%;
-        right: 18%;
-        width: 280px;
-        filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
-        animation: foxRun 4s ease-in-out infinite alternate;
-      }
-
-      @keyframes foxRun {
-        0% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-8px) rotate(1deg); }
-        100% { transform: translateY(0) rotate(0deg); }
-      }
-
-      .squirrel-character {
-        position: absolute;
-        bottom: 15%;
-        left: 2%;
-        width: 320px;
-        filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
-      }
-
-      /* Speech bubble matching screenshot 1:1 */
-      .fox-dialogue {
-        position: absolute;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: max-content;
-        max-width: 320px;
-        padding: 12px 18px 14px;
-        color: #251d49;
-        background: #fff8df;
-        border: 3px solid #251d49;
-        border-radius: 22px 22px 22px 8px;
-        box-shadow: 5px 6px #ed4f74, 8px 10px 18px rgba(29, 23, 33, 0.3);
-        transform: translate(-50%, -100%);
-      }
-
-      .fox-dialogue:before {
-        content: "";
-        position: absolute;
-        left: 30%;
-        top: calc(100% - 7px);
-        width: 16px;
-        height: 16px;
-        background: #fff8df;
-        border-right: 3px solid #251d49;
-        border-bottom: 3px solid #251d49;
-        transform: rotate(45deg);
-      }
-
-      .fox-dialogue:after {
-        content: "✦";
-        position: absolute;
-        top: -18px;
-        right: -13px;
-        color: #ffd541;
-        font-family: 'Nunito', sans-serif;
-        font-size: 25px;
-        font-weight: 900;
-        line-height: 1;
-        text-shadow: 2px 2px 0 #251d49;
-        transform: rotate(12deg);
-      }
-
-      .fox-dialogue__kicker {
-        display: block;
-        margin-bottom: 6px;
-        padding: 2px 8px;
-        color: #fff8df;
-        background: #251d49;
-        border-radius: 999px;
-        font-family: 'Nunito', sans-serif;
-        font-size: 10px;
-        font-weight: 900;
-        line-height: 1.4;
-        letter-spacing: 0.12em;
-      }
-
-      .fox-dialogue__text {
-        display: block;
-        text-align: center;
-        font-family: 'Nunito', sans-serif;
-        font-size: 16px;
-        font-weight: 900;
-        line-height: 1.25;
-        color: #251d49;
-      }
-
-      /* Center Wooden Board matching screenshot 1:1 */
-      .x-login-panel-exact {
-        position: relative;
-        z-index: 5;
-        width: 90%;
-        max-width: 440px;
-        padding: 38px 32px;
-        border: 18px solid transparent;
-        border-radius: 36px;
-        background: radial-gradient(ellipse at 50% 0%, rgba(102,113,69,0.2), transparent 50%),
-                    linear-gradient(145deg, #20291c, #152016 58%, #1b2519) padding-box,
-                    linear-gradient(96deg, #35190a, #75451f, #4c2812 18%, #8b5529, #5a3016 44%, #7b4821, #44220f 72%, #8a5227 87%, #35190a) border-box;
-        box-shadow: 0 30px 60px rgba(3, 7, 4, 0.8), 0 8px 14px rgba(2, 3, 2, 0.6), inset 0 0 0 2px rgba(177, 132, 78, 0.4);
-        text-align: center;
-      }
-
-      .btn-x-login-exact {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        width: 100%;
-        height: 54px;
-        padding: 0 28px;
-        font-family: 'Nunito', sans-serif;
-        font-size: 15px;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        color: #FFFFFF;
-        background: linear-gradient(180deg, #385B28 0%, #1F3816 100%);
-        border: 2px solid #76AC37;
-        border-radius: 999px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .btn-x-login-exact:hover {
-        background: linear-gradient(180deg, #466F33 0%, #29491E 100%);
-        box-shadow: 0 8px 25px rgba(118, 172, 55, 0.4);
-        transform: translateY(-1px);
-      }
-    </style>
 </head>
 <body>
 
-    <!-- X Login Surface matching exact user screenshot -->
-    <div class="x-login-preview" id="x-login-surface">
-      
-      <div class="x-login-static-background"></div>
-
-      <!-- Character Stage -->
-      <div class="character-stage">
-        <!-- Low poly Fox SVG graphic -->
-        <svg class="fox-character" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 70 L80 40 L140 60 L180 30 L160 80 L100 100 L40 90 Z" fill="#E8832A"/>
-          <path d="M140 60 L180 30 L195 45 L170 85 Z" fill="#F4A24C"/>
-          <path d="M170 85 L195 45 L190 90 Z" fill="#FFFFFF"/>
-          <path d="M40 90 L100 100 L80 115 L30 110 Z" fill="#B35B16"/>
-        </svg>
-
-        <!-- Squirrel SVG graphic -->
-        <svg class="squirrel-character" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 140 C40 100 80 40 150 50 C180 60 190 100 160 130 C120 160 60 160 10 140 Z" fill="#C44B1D"/>
-          <path d="M120 70 C150 60 170 80 150 110 Z" fill="#E26A38"/>
-        </svg>
-      </div>
-
-      <!-- Speech Bubble (Matching Screenshot 1:1) -->
-      <div class="fox-dialogue" style="top: 52%; right: 18%;">
-        <span class="fox-dialogue__kicker">FOX.EXE</span>
-        <span class="fox-dialogue__text" id="fox-dialogue-text">I've seen rugs with stronger communities.</span>
-      </div>
-
-      <!-- Center Wooden Board (Matching Screenshot 1:1) -->
-      <div class="x-login-panel-exact">
-        <div style="margin-bottom: 20px;">
-          <!-- Leaf emblem -->
-          <svg width="48" height="32" viewBox="0 0 48 32" fill="none" style="margin-bottom: 8px;">
-            <path d="M24 4 C16 14 8 12 4 20 C14 20 20 14 24 4 Z" fill="#76AC37"/>
-            <path d="M24 4 C32 14 40 12 44 20 C34 20 28 14 24 4 Z" fill="#4C8221"/>
-          </svg>
-
-          <h1 style="font-family: 'Amatic SC', serif; font-size: 52px; font-weight: 700; color: #F6ECD2; margin: 0; letter-spacing: 0.05em; line-height: 1;">GREENVEIL</h1>
-          
-          <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, #76AC37, transparent); margin: 12px auto 0 auto;"></div>
+    <!-- X Login Surface (Exact Original GreenVeil Structure) -->
+    <section class="x-login-preview" role="dialog" aria-modal="true" aria-labelledby="x-login-preview-title" id="x-login-surface">
+        <div class="x-login-static-background" aria-hidden="true"></div>
+        
+        <div class="x-login-fox-stage" aria-hidden="true">
+            <canvas class="x-login-fox-canvas" id="fox-canvas"></canvas>
         </div>
 
-        <button class="btn-x-login-exact" onclick="enterGreenVeilWorld()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-          <span>LOGIN WITH X</span>
-        </button>
-      </div>
+        <!-- Dialogue Speech Bubble (Matching Screenshot 1:1) -->
+        <div class="fox-dialogue x-login-fox-dialogue is-open" role="status" aria-live="polite" style="top: 48%; left: 74%;">
+            <span class="fox-dialogue__kicker">FOX.EXE</span>
+            <span class="fox-dialogue__text" id="fox-dialogue-text">I've seen rugs with stronger communities.</span>
+        </div>
 
-    </div>
+        <div class="x-login-auth-error" role="alert" aria-live="assertive" hidden>
+            <span class="x-login-auth-error__icon" aria-hidden="true">!</span>
+            <span class="x-login-auth-error__content">
+                <strong>X CONNECTION FAILED</strong>
+                <span class="x-login-auth-error__copy">We could not verify your X account. Please try again.</span>
+            </span>
+        </div>
 
-    <!-- Main Game Canvas & HUD (Hidden initially until Login clicked) -->
+        <!-- Central Wooden Login Panel -->
+        <div class="x-login-panel" style="transform: scale(1); opacity: 1;">
+            <div class="x-login-crest" aria-hidden="true">
+                <svg viewBox="0 0 132 82">
+                    <path class="crest-arrow is-left" d="m13 62 38-42M12 62l6-2-4-5m37-35-9 2 7 6"/>
+                    <path class="crest-arrow is-right" d="m119 62-38-42m39 42-6-2 4-5M81 20l9 2-7 6"/>
+                    <path class="crest-leaf is-left" d="M63 69C39 62 31 45 34 24c21 5 32 21 29 45Z"/>
+                    <path class="crest-leaf is-right" d="M69 69c24-7 32-24 29-45-21 5-32 21-29 45Z"/>
+                    <path class="crest-leaf is-center" d="M66 68c-13-19-10-39 0-56 12 17 15 37 0 56Z"/>
+                    <path class="crest-vein" d="M66 67V24M61 57 43 35m28 22 18-22"/>
+                </svg>
+            </div>
+
+            <header class="x-login-brand">
+                <h1 id="x-login-preview-title" style="font-family: 'Amatic SC', Georgia, serif; font-size: 58px; font-weight: 700; color: #F6ECD2; margin: 0;">GREENVEIL</h1>
+            </header>
+
+            <div class="x-login-divider" aria-hidden="true">
+                <i></i><span><b></b><b></b><b></b></span><i></i>
+            </div>
+
+            <div class="x-login-button-frame">
+                <button class="x-login-button" type="button" aria-label="Login with X" onclick="triggerXLogin()">
+                    <svg class="x-login-x-mark" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+                    </svg>
+                    <span>LOGIN WITH X</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Game Engine Elements -->
     <div class="game" id="main-game-hud" style="display: block;">
       <canvas class="js-canvas"></canvas>
 
@@ -262,7 +97,6 @@
 
     <script src="app.js"></script>
     <script>
-      // Quotes rotation matching exact FOX.EXE dialogue
       const quotes = [
         "I've seen rugs with stronger communities.",
         "Robinhood Chain speed is unmatched.",
@@ -278,13 +112,14 @@
         if (textElem) textElem.innerText = quotes[qIdx];
       }, 4500);
 
-      function enterGreenVeilWorld() {
+      function triggerXLogin() {
         const surface = document.getElementById('x-login-surface');
         surface.style.opacity = '0';
         surface.style.transition = 'opacity 0.5s ease';
         setTimeout(() => {
           surface.style.display = 'none';
-          alert('Robinhood Chain Wallet Verified! Connected as @RobinHood_Hunter');
+          document.documentElement.classList.remove('is-x-login-preview-boot');
+          alert('Verified Robinhood Chain Wallet! Logged in as @RobinHood_Hunter');
         }, 500);
       }
     </script>
