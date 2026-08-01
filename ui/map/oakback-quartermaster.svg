@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Oakback Quartermaster">
+  <defs>
+    <filter id="outline" x="-30%" y="-30%" width="160%" height="160%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="3.2" result="expanded"/>
+      <feFlood flood-color="#f8f1d0" result="cream"/>
+      <feComposite in="cream" in2="expanded" operator="in" result="cream-outline"/>
+      <feMorphology in="SourceAlpha" operator="dilate" radius="5.3" result="outer-expanded"/>
+      <feFlood flood-color="#211b1c" result="ink"/>
+      <feComposite in="ink" in2="outer-expanded" operator="in" result="ink-outline"/>
+      <feMerge>
+        <feMergeNode in="ink-outline"/>
+        <feMergeNode in="cream-outline"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#outline)">
+    <ellipse cx="49" cy="52" rx="35" ry="31" fill="#160d08" opacity=".28"/>
+    <g fill="#251f2b" stroke="#160d08" stroke-width="2">
+      <rect x="25" y="14" width="17" height="17" rx="6"/>
+      <rect x="58" y="14" width="17" height="17" rx="6"/>
+      <rect x="25" y="69" width="17" height="17" rx="6"/>
+      <rect x="58" y="69" width="17" height="17" rx="6"/>
+    </g>
+    <path d="M18 27 27 18h43l14 13v38L73 81H27L17 70Z" fill="#433b31" stroke="#211b1c" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M52 23h18l10 10v34L69 76H52Z" fill="#3f5f45" stroke="#251f2b" stroke-width="2.5"/>
+    <path d="m58 27 10 1 8 8v25l-9 9h-9Z" fill="#71805c" stroke="#354234" stroke-width="2"/>
+    <path d="M22 31h31v39H22Z" fill="#684b32" stroke="#251f2b" stroke-width="2.5"/>
+    <path d="M27 35h21v12H27Zm0 17h9v13h-9Zm13 0h8v13h-8Z" fill="#8b6744" stroke="#382a25" stroke-width="1.6"/>
+    <g fill="#c69b4f" stroke="#382a25" stroke-width="1">
+      <circle cx="43" cy="41" r="1.8"/><circle cx="32" cy="59" r="1.8"/><circle cx="44" cy="59" r="1.8"/>
+    </g>
+    <path d="M18 38h7m-7 24h7M51 31v39" fill="none" stroke="#b19061" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M78 39h8v22h-8" fill="#a37b50" stroke="#382a25" stroke-width="2"/>
+    <path d="m81 45 9 5-9 5Z" fill="#d7ee6c" stroke="#263224" stroke-width="1.5"/>
+    <path d="M31 20v-5m38 5v-5M31 85v-5m38 5v-5" stroke="#c69b4f" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>
